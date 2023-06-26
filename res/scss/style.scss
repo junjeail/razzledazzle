@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+@import "./_reset.scss";
+@import "./_font.scss";
+@import "./_color.scss";
+@import "./_mixin.scss";
+
+// 요소
+@import "./_layout.scss"; 
+@import "./_item.scss";
+@import "./_swiper.js.scss";
+@import "./_media.scss";

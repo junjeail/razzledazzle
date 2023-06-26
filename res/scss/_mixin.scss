@@ -1,0 +1,225 @@
+// 숨기기 요소
+@mixin itemHidden {
+  display: block;
+  position: absolute;
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  top: -1px;
+  left: -1px;
+  height: 1px;
+  width: 1px;
+  white-space: nowrap; 
+  overflow: hidden;
+}
+
+// 아이콘 경로 등..
+@mixin iconPath {
+  background-image: url("../img/ico-btn.png");
+  background-repeat: no-repeat;
+  background-size: 400px;
+  // background-color: red;
+}
+
+@mixin iconPathStat {
+  &::before {
+    background-image: url("../img/ico-stat.png");
+    background-repeat: no-repeat;
+    background-size: 160px;
+  }
+}
+
+@mixin iconPathStatAfter {
+  &::after {
+    background-image: url("../img/ico-stat.png");
+    background-repeat: no-repeat;
+    background-size: 320px 320px;
+  }
+}
+
+@mixin iconPathMap {
+  background-image: url("../img/ico-map.png");
+  background-repeat: no-repeat;
+  background-size: 400px 400px;
+  background-color: transparent;
+}
+
+// ::before icon 
+@mixin beforeconts {
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+  }
+}
+
+@mixin afterconts {
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+  }
+}
+
+@mixin beforeIcon ($icoSize, $onlyIcon:false) {
+  position: relative;
+
+  @if($onlyIcon) {
+    overflow: hidden;
+    text-align: left;
+    text-indent: -999px;
+
+    &::before {
+      top: calc(50% - ($icoSize / 2));
+      left: calc(50% - ($icoSize / 2));
+    }
+  }
+
+  &::before {
+    content:"";
+    display: block;
+    position: absolute;
+    width: $icoSize;
+    height: $icoSize;
+    box-sizing: border-box;
+
+    @include iconPath;
+  }
+}
+
+@mixin afterIcon ($icoSize, $onlyIcon:false) {
+  position: relative;
+
+  @if($onlyIcon) {
+    overflow: hidden;
+    text-align: left;
+    text-indent: -999px;
+
+    &::after {
+      top: calc(50% - ($icoSize / 2));
+      left: calc(50% - ($icoSize / 2));
+    }
+  }
+
+  &::after {
+    content:"";
+    display: block;
+    position: absolute;
+    width: $icoSize;
+    height: $icoSize;
+    box-sizing: border-box;
+
+    @include iconPath;
+  }
+}
+
+@mixin beforeIconMap ($icoSize, $onlyIcon:false) {
+  @include beforeIcon($icoSize, $onlyIcon);
+
+  &::before {
+    @include iconPathMap;
+  }
+}
+
+@mixin beforeIconStat ($icoSize, $onlyIcon:false) {
+  @include beforeIcon($icoSize, $onlyIcon);
+
+  &::before {
+    @include iconPathStat;
+  }
+}
+
+@mixin beforeIconPos($icoSize, $icoPos) {  
+  
+  @if ($icoPos == left) {
+    padding-left: calc($icoSize + $item-padding * 2);
+    
+    &::before {
+      top : calc(50% - $icoSize / 2);
+      left: calc($icoSize / 2);
+    }
+  }@else if ($icoPos == right) {
+    padding-right: calc($icoSize + $item-padding * 2);
+
+    &::before{
+      top : calc(50% - $icoSize / 2);
+      right: calc($icoSize / 2);
+    }
+  }@else if ($icoPos == top) {
+    padding: calc($icoSize + $item-padding / 2) 0 calc($item-padding / 2);
+    
+    &::before{
+      top : calc($icoSize / 2 - $item-padding / 2);
+      left: calc(50% - $icoSize / 2);
+    }
+  }@else if ($icoPos == only) {
+    &::before{
+      top: calc(50% - $icoSize / 2);
+      left: calc(50% - $icoSize / 2);
+    }
+  }
+}
+
+@mixin defaultShadow {
+  box-shadow: 0 4px 8px rgba($black, .1);
+}
+
+@mixin popShadow {
+  box-shadow: 0 8px 24px rgba($black, .4);
+}
+
+// 버튼 배경컬러에 따라 자동으로 보더컬러, 포커스 컬러 지정해줌
+@mixin btnColor ($bgcolor, $border:false, $borderColor:false) {
+  background-color: $bgcolor;
+  outline: 2px solid transparent;
+
+  transition: outline .4s, background .4s;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($bgcolor, 7%) !important;
+  }
+  
+  @if $border {
+
+    @if $borderColor {
+      border: 1px solid $borderColor;
+      @include focusBorder($bgcolor, true, $borderColor);
+    }@else {
+      border: 1px solid darken($bgcolor, 10%);
+      @include focusBorder(darken($bgcolor, 10%));
+    }
+    
+  } @else {
+    @include focusBorder($bgcolor);
+
+    border:none;
+  }
+}
+
+@mixin focusBorder($bgcolor, $border:false, $borderColor:false) {
+  @if ($border) {
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: $borderColor;
+    }
+  } @else {
+    
+    &:hover,
+    &:focus,
+    &:active {
+      @include outlineMake(darken($bgcolor, 10%));
+    }
+  }
+}
+
+@mixin outlineMake($color) {
+  outline: 2px solid rgba($color, .4);
+}

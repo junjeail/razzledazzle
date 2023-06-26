@@ -1,0 +1,18 @@
+/* font-face */
+$font-family: "Roboto";
+
+@font-face {
+  font-family: 'default';
+  font-weight: normal;
+  src: local('※'),
+  url('../font/#{$font-family}-Regular.woff2') format('woff2'),
+  url('../font/#{$font-family}-Regular.woff') format('woff'),
+}
+
+@font-face {
+  font-family: 'default-B';
+  font-weight: normal;
+  src: local('※'),
+  url('../font/#{$font-family}-Bold.woff2') format('woff2'),
+  url('../font/#{$font-family}-Bold.woff') format('woff'),
+}
