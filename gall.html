@@ -9,7 +9,7 @@
 
   <!-- script -->
   <script src="./res/js/jquery.min.js"></script>
-  <script src="./res/js/newWaterfall.js"></script>
+  <script src="./res/js/dnWaterfall.js"></script>
   <script src="./res/js/pubui.js"></script>
 
   <!-- css -->
@@ -59,38 +59,21 @@
           </p>
         </div>
 
-        <ul id="waterfall">  
-          <li>
-            <div>
-              <img src="./res/img/img_frame1.jpg" alt="">
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="./res/img/img_frame2.jpg" alt="">
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="./res/img/img_frame3.jpg" alt="">
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="./res/img/img_frame3.jpg" alt="">
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="./res/img/img_frame2.jpg" alt="">
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="./res/img/img_frame3.jpg" alt="">
-            </div>
-          </li>
-        </ul>  
+        <div id="waterfall" class="dnWaterfall">
+          <img class="waterfall-img" lazy-src="./res/img/gall/img-001.jpg">
+          <img class="waterfall-img" lazy-src="./res/img/gall/img-002.jpg">
+          <img class="waterfall-img" lazy-src="./res/img/gall/img-003.jpg">
+          <img class="waterfall-img" lazy-src="./res/img/gall/img-004.jpg">
+          <img class="waterfall-img" lazy-src="./res/img/gall/img-005.jpg">
+          <img class="waterfall-img" lazy-src="./res/img/gall/img-006.jpg">
+          <img class="waterfall-img" lazy-src="./res/img/gall/img-007.jpg">
+          <img class="waterfall-img" lazy-src="./res/img/gall/img-008.jpg">
+          <img class="waterfall-img" lazy-src="./res/img/gall/img-009.jpg">
+          <img class="waterfall-img" lazy-src="./res/img/gall/img-010.jpg">
+          <img class="waterfall-img" lazy-src="./res/img/gall/img-011.jpg">
+          <img class="waterfall-img" lazy-src="./res/img/gall/img-012.jpg">
+          <img class="waterfall-img" lazy-src="./res/img/gall/img-013.jpg">
+        </div>  
       </div>
     </section>
     <!-- e : Gallery -->
@@ -101,19 +84,7 @@
 </body>
 
 <script>
-  $('#waterfall').NewWaterfall({
-
-    // width of grid item
-    width: 360,
-
-    // refresh delay
-    delay: 60,
-
-    // By default, the plugin will add the class 'show' to grid item when in viewport
-    // setting the options to true will remove the class when out of the viewport
-    repeatShow: false
-
-  });
+  $('#waterfall').dnWaterfall();
 </script>
 
 </html>
