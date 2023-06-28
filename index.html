@@ -10,6 +10,7 @@
   <!-- script -->
   <script src="./res/js/jquery.min.js"></script>
   <script src="./res/js/swiper-bundle.min.js"></script>
+  <script src="./res/js/pubui.js"></script>
 
   <!-- css -->
   <link href="./res/css/swiper.js.css" rel="stylesheet">
@@ -33,7 +34,7 @@
       </nav>
 
       <div class="selectLan">
-        <button class="toggleSltLan">Language</button>
+        <button id="toggleSltLan">Language</button>
         <div class="toggleWrap">
           <a href="">한국어</a>
           <a href="">tiếng Việt</a>
@@ -149,6 +150,7 @@
 <script>
 
 
+  // 메인화면 세로 한칸씩 슬라이드
   var swiperV = new Swiper("#mainSwiper", {
     spaceBetween: 0,
     direction: "vertical",
@@ -160,6 +162,7 @@
     },
   });
 
+  // 메인화면 상단 비주얼 슬라이드
   var swiperTop = new Swiper("#mainVisualSlide", {
     spaceBetween: 0,
     autoplay: {

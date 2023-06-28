@@ -1,0 +1,35 @@
+#waterfall {
+  margin: 10px;
+
+  li {
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transform: translateY(100px);
+
+    &.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.3s, top 1s;
+    }
+
+    >div {
+      border-radius: 0;
+      margin: 6px;
+      padding: 0;
+      background: rgb(255, 255, 255);
+      transition: all 0.5s;
+
+      &:hover {
+        transform: translateY(-10px);
+        // box-shadow: 0 10px 15px rgba($co-main, 0.5);
+        transition: all 0.3s;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}

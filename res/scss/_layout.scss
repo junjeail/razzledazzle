@@ -145,6 +145,21 @@ header.gnb {
       display: none;
     }
 
+    .selectLan {
+      button {
+        border: 1px solid $co-border-white;
+        color: $co-txt-white;
+      }
+
+      .toggleWrap {
+        display: none;
+
+        &.active {
+          display: block;
+        }
+      }
+    }
+
     nav {
       display: block;
       height: 100%;
@@ -269,8 +284,10 @@ header.gnb {
     position: relative;
     width: 800px;
     height: 800px;
+    padding: 240px 0 0;
     background: url(../img/round.svg) no-repeat center;
     background-size: contain;
+    box-sizing: border-box;
 
     &::before,
     &::after {
@@ -305,6 +322,12 @@ header.gnb {
       }
       
     }
+
+    img {
+      display: block;
+      max-width: 100%;
+      margin: 1rem auto 4rem;
+    }
   }
 }
 
@@ -334,6 +357,10 @@ header.gnb {
     width: 500px;
     height: 500px;
   }
+}
+
+.area-gallery {
+  text-align: center;
 }
 
 .area-qst {

@@ -330,6 +330,16 @@ header.gnb .area-conts h1 img {
 header.gnb .area-conts .btn-callnav {
   display: none;
 }
+header.gnb .area-conts .selectLan button {
+  border: 1px solid #fff;
+  color: #fff;
+}
+header.gnb .area-conts .selectLan .toggleWrap {
+  display: none;
+}
+header.gnb .area-conts .selectLan .toggleWrap.active {
+  display: block;
+}
 header.gnb .area-conts nav {
   display: block;
   height: 100%;
@@ -435,8 +445,10 @@ header.gnb .area-conts nav a.active::before {
   position: relative;
   width: 800px;
   height: 800px;
+  padding: 240px 0 0;
   background: url(../img/round.svg) no-repeat center;
   background-size: contain;
+  box-sizing: border-box;
 }
 .area-company .area-info::before, .area-company .area-info::after {
   content: "";
@@ -475,6 +487,11 @@ header.gnb .area-conts nav a.active::before {
     transform: rotate(360deg);
   }
 }
+.area-company .area-info img {
+  display: block;
+  max-width: 100%;
+  margin: 1rem auto 4rem;
+}
 
 .area-information {
   display: flex;
@@ -498,6 +515,10 @@ header.gnb .area-conts nav a.active::before {
   display: block;
   width: 500px;
   height: 500px;
+}
+
+.area-gallery {
+  text-align: center;
 }
 
 .area-qst {
@@ -640,6 +661,36 @@ header.gnb .area-conts nav a.active::before {
 }
 .area-contact .wrap-form input[type=submit]:hover, .area-contact .wrap-form input[type=submit]:focus, .area-contact .wrap-form input[type=submit]:active {
   outline: 2px solid rgba(46, 92, 247, 0.4);
+}
+
+#waterfall {
+  margin: 10px;
+}
+#waterfall li {
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transform: translateY(100px);
+}
+#waterfall li.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s, top 1s;
+}
+#waterfall li > div {
+  border-radius: 0;
+  margin: 6px;
+  padding: 0;
+  background: rgb(255, 255, 255);
+  transition: all 0.5s;
+}
+#waterfall li > div:hover {
+  transform: translateY(-10px);
+  transition: all 0.3s;
+}
+#waterfall li > div img {
+  display: block;
+  width: 100%;
 }
 
 .swiper {
