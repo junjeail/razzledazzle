@@ -207,6 +207,10 @@ body {
   color: #333;
 }
 
+body {
+  touch-action: pan-x pan-y;
+}
+
 h1,
 h2,
 h3,
@@ -633,7 +637,7 @@ header.gnb .area-conts nav a.active::before {
 }
 
 .area-contact {
-  background: #EAF3FD url("../img/img_line.jpg") no-repeat bottom center;
+  background: #EAF3FD;
   text-align: center;
 }
 .area-contact .wrap-form {

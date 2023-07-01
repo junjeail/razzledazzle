@@ -8,6 +8,10 @@ body {
   color: $co-txt-default;
 }
 
+body {
+  touch-action: pan-x pan-y;
+}
+
 h1,
 h2,
 h3,
@@ -509,7 +513,7 @@ header.gnb {
 }
 
 .area-contact {
-  background: $co-bg-sub url("../img/img_line.jpg") no-repeat bottom center;
+  background: $co-bg-sub;
   text-align: center;
 
   .wrap-form {
