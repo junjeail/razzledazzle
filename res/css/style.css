@@ -1116,7 +1116,7 @@ header.gnb .area-conts nav a.active::before {
   }
   .area-information .area-conts {
     margin: 0 0 20px 0;
-    width: 100%;
+    width: 80%;
   }
   .area-information iframe {
     width: 100%;
