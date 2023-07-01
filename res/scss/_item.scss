@@ -104,8 +104,16 @@ $half :50%;
     padding-right: 15px; 
     padding-left : 15px;   
   }
-  @for $i from 1 through 4 {
-    .col-dn-waterfall-#{$i} { width: 100% / $i; }
+  .col-dn-waterfall-1 {
+    width: 100%;
+  }
+
+  .col-dn-waterfall-2 {
+    width: 50%;
+  }
+
+  .col-dn-waterfall-3 {
+    width: calc(100% / 3);
   }
 
   .waterfall-area{

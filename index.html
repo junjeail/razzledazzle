@@ -27,17 +27,19 @@
 
       <button class="btn-callnav">메뉴</button>
 
-      <nav>
-        <a href="./index.html" class="active">브랜드 소개</a>
-        <a href="./gall.html">겔러리</a>
-        <a href="./contact.html">가맹문의</a>
-      </nav>
+      <div class="menu">
+        <nav>
+          <a href="./index.html" class="active">브랜드 소개</a>
+          <a href="./gall.html">겔러리</a>
+          <a href="./contact.html">가맹문의</a>
+        </nav>
 
-      <div class="selectLan">
-        <button id="toggleSltLan">Language</button>
-        <div class="toggleWrap">
-          <a href="">한국어</a>
-          <a href="">tiếng Việt</a>
+        <div class="selectLan">
+          <button id="toggleSltLan">Language</button>
+          <div class="toggleWrap">
+            <a href="">한국어</a>
+            <a href="">tiếng Việt</a>
+          </div>
         </div>
       </div>
     </div>
@@ -54,9 +56,25 @@
 
             <div id="mainVisualSlide" class="swiper">
               <div class="swiper-wrapper">
-                <div class="swiper-slide">1</div>
+                <div class="swiper-slide" style="background-image: url('./res/img/main-slide-01.jpg');">
+                  <div class="conts">
+                    <p>
+                      <strong>Razzle Dazzle</strong>에서 제공하는<br>
+                      다양한 프레임을 확인 해 보세요
+                    </p>
+                    <a href="./gall.html" class="btn-go">Gallery</a>
+                  </div>
+                </div>
                 <div class="swiper-slide">2</div>
-                <div class="swiper-slide">3</div>
+                <div class="swiper-slide" style="background-image: url('./res/img/main-slide-03.jpg');">
+                  <div class="conts">
+                    <p>
+                      <strong>Razzle Dazzle</strong>과 함께<br>
+                      프리미엄 서비스를 제공 하세요
+                    </p>
+                    <a href="./contact.html" class="btn-go">Contact</a>
+                  </div>
+                </div>
                 <div class="swiper-slide">4</div>
                 <div class="swiper-slide">5</div>
               </div>
@@ -123,12 +141,18 @@
                 <h2>RAZZLE DAZZLE CO. LTD.</h2>
               </div>
               <dl class="list-info">
+                <div>
                 <dt>E-mail</dt>
                 <dd>photorazzle@gamil.com</dd>
+              </div>
+              <div>
                 <dt>Tel</dt>
                 <dd>+84 038-356-1760</dd>
+              </div>
+              <div>
                 <dt>Office</dt>
                 <dd>No. 83, Xuan Thuy street, Group 14, DichVong Hau ward, Cau Giay district, Hanoi, Vietnam</dd>
+              </div>
               </dl>
             </div>
 
@@ -166,7 +190,7 @@
   var swiperTop = new Swiper("#mainVisualSlide", {
     spaceBetween: 0,
     autoplay: {
-      delay: 2500,
+      delay: 5000,
       disableOnInteraction: false,
     },
     pagination: {
@@ -174,6 +198,32 @@
       clickable: true,
     },
   });
+  const enableSwiper = function() {
+    swiperV = new Swiper("#mainSwiper", {
+    spaceBetween: 0,
+    direction: "vertical",
+    slidesPerView: 1,
+    mousewheel: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+};
+
+  // 모바일에서 전체 세로한칸씩 슬라이드 헤제 
+  const breakpoint = window.matchMedia( '(max-width:640px)' );
+  const breakpointChecker = function() {
+   if ( breakpoint.matches === true ) {
+      if ( swiperV !== undefined ) swiperV.destroy( true, true );
+      return;
+   } else if ( breakpoint.matches === false ) {
+      return enableSwiper();
+   }
+};
+
+  breakpoint.addListener(breakpointChecker);
+  breakpointChecker();
 </script>
 
 </html>

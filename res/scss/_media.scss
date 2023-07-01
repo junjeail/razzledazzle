@@ -1,3 +1,291 @@
+@media all and (max-width: 1200px) {
+
+  .area-conts {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
 @media all and (max-width: 1000px) {
 
+  header.gnb {
+    .area-conts {
+      padding: 0 20px;
+
+      .logo {
+        width: 260px;
+
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      .btn-callnav {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: none;
+        background: transparent url(../img/ico-triggermenu.png) no-repeat center;
+        background-size: 20px auto;
+        overflow: hidden;
+        text-align: left;
+        text-indent: -999px;
+      }
+
+      .menu {
+        display: none;
+
+        &.active {
+          display: flex;
+          flex-direction: column;
+          position: fixed;
+          top: 72px;
+          left: 40vw;
+          right: 0;
+          bottom: 0;
+          background: $gray-900;
+
+          &::before {
+            content: "";
+            display: block;
+            position: fixed;
+            left: 0;
+            top: 72px;
+            right: 60vw;
+            bottom: 0;
+            background-color: rgba($black, .4);
+          }
+        }
+
+        nav {
+          flex: auto;
+
+          a {
+            display: block;
+            height: auto;
+            margin: 10px 0 0 0 !important;
+            text-align: center;
+
+            &::before {
+              display: none !important;
+            }
+          }
+        }
+
+        .selectLan {
+          margin: auto 20px 20px;
+
+          .toggleWrap {
+            top: unset;
+            bottom: 50px;
+          }
+        }
+
+      }
+
+    }
+  }
+
+  .area-intro {
+    background-size: 50% auto;
+
+    .area-conts {
+      .area-info {
+        right: 20px;
+      }
+
+    }
+  }
+
+  .area-company {
+    .area-conts {
+      margin: 0 auto;
+    }
+  }
+
+  .area-information {
+    .area-conts {
+      width: 360px;
+    }
+  }
+
+  .area-qst {
+    .list-qst {
+      li {
+        width: 50%;
+        margin-top: 40px;
+      }
+    }
+  }
 }
+
+@media all and (max-width: 800px) {
+
+
+  .area-intro {
+    background-size: auto 300px;
+    background-position: center bottom;
+
+    .area-conts {
+      .area-info {
+
+        position: relative;
+        top: unset;
+        left: unset;
+        right: unset;
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 320px;
+        transform: translateY(0);
+      }
+
+    }
+  }
+
+  .area-information {
+    flex-direction: column;
+
+    .area-conts {
+      width: 100%;
+      max-width: 500px;
+
+      .list-info {
+        width: 100%;
+      }
+    }
+  }
+
+  .area-company {
+    .area-info {
+      width: 100%;
+      height: auto;
+      padding: 40px;
+      background: rgba($white, .8);
+
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      img {
+        max-width: 500px;
+
+      }
+    }
+  }
+}
+
+@media all and (max-width: 640px) {
+
+  header.gnb {
+    .area-conts {
+      height: 72px !important;
+    }
+  }
+
+  .area-conts {
+    height: auto !important;
+  }
+
+  .area-mainvisual,
+  .area-mainvisual .swiper-wrapper,
+  .area-mainvisual .swiper-wrapper .swiper-slide {
+    position: relative;
+    height: 460px !important;
+
+    .conts {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      width: 60%;
+      display: inline-block;
+      background: white;
+      box-shadow: 0 5px 10px rgba($black, .6);
+    }
+  }
+
+  .swiper-h {
+    >.swiper-wrapper {
+      overflow-y: auto;
+      flex-direction: column;
+
+      >.swiper-slide {
+        height: auto;
+      }
+    }
+  }
+
+  .tit-main {
+    margin-bottom: 1rem;
+  }
+
+  .area-info p {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+  }
+
+  .area-conts {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+  }
+
+  .area-company {
+    .area-info {
+      width: 80%;
+      height: auto;
+      padding: 40px;
+      margin: 0 auto;
+      background: rgba($white, .8);
+
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      img {
+        width: 100%;
+        max-width: 500px;
+        display: block;
+        margin: 20px auto;
+      }
+    
+  }
+}
+
+  .area-qst {
+    .list-qst {
+      li {
+        width: 100%;
+      }
+    }
+  }
+
+  .area-contact {
+    .wrap-form {
+      margin-top: 3rem;
+      padding: 1rem;
+
+      .wrap-input.half {
+        width: 100%;
+        margin-left: 0 !important;
+      }
+    }
+  }
+
+  .area-information {
+
+    .area-conts {
+      margin: 0 0 20px 0;
+      width: 100%;
+    }
+    iframe {
+      width: 100%;
+      height: 240px;
+      margin-bottom: 20px;
+    }
+  }
+
+}
+
+@media all and (max-width: 440px) {}

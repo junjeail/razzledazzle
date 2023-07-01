@@ -17,7 +17,7 @@ h5 {
 }
 
 .tit-main {
-  margin-bottom: 2rem;
+  margin-bottom: 6rem;
   
   .desc {
     display: block;
@@ -124,7 +124,7 @@ header.gnb {
   left: 0;
   width: 100vw;
   height: 6rem;
-  background: rgba($black, .7);
+  background: rgba($black, .8);
   z-index: 100;
 
   .area-conts {
@@ -141,13 +141,26 @@ header.gnb {
       }
     }
 
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
     .btn-callnav {
       display: none;
     }
 
     .selectLan {
+      position: relative;
+
       button {
+        padding: 6px 12px 6px 32px;
         border: 1px solid $co-border-white;
+        border-radius: 20px;
+        background: transparent url(../img/ico-lang.png) no-repeat;
+        background-position: 6px center;
+        background-size: 20px;
         color: $co-txt-white;
       }
 
@@ -156,6 +169,20 @@ header.gnb {
 
         &.active {
           display: block;
+          position: absolute;
+          top: 30px;
+          left: 0;
+          width: 100%;
+          padding: 20px;
+          background: $white;
+          box-sizing: border-box;
+          box-shadow: 0 4px 6px rgba($black, .3);
+        }
+
+        a {
+          display: block;
+          padding: 5px 0;
+          color: $co-main;
         }
       }
     }
@@ -184,7 +211,7 @@ header.gnb {
         }
 
         &.active {
-          color : $co-sub01;
+          color : $co-txt-main;
 
           &::before {
             content: "";
@@ -212,43 +239,80 @@ header.gnb {
     padding: 18rem 0 0;
     color: $co-txt-white;
     text-align: left;
+  }
 
-    h1 {
-      position: relative;
-      font-size: 5rem;
-      font-family: 'default-B';
+  .swiper-pagination-top {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: 100%;
+    max-width: 1100px;
+    text-align: left;
+    z-index: 10;
+    transform: translateX(-50%);
 
-      img {
-        display: block;
-      }
-
-      &::before,
-      &::after {
-        content:"";
-        display: block;
-        position: absolute;
-        background: #5A92FF;
-      }
-
-      &::before {
-        right: 50%;
-        bottom: -3rem;
-        width: 100vw;
-        height: 2px;
-      }
-
-      &::after {
-        width: 16px;
-        height: 16px;
-        right: 50%;
-        bottom: calc(-3rem - 8px);
-        border-radius: 50%;
+    .swiper-pagination-bullet {
+      &.swiper-pagination-bullet-active {
+        width: 20px;
+        border-radius: 10px;
       }
     }
+  }
 
-    .description {
-      margin: 6rem 0 0;
-      font-size: 3rem;
+  .swiper-slide {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    justify-content: left;
+
+    .conts {
+      display: block;
+      width: 100%;
+      max-width: 1100px;
+      text-align: left;
+      margin: 0 auto;
+      padding: 30px;
+
+      p{
+        
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+      }
+    }
+  }
+
+  .btn-go {
+    display: inline-block;
+    position: relative;
+    color : $co-txt-main;
+    font-weight: bold;
+    margin-top: 40px;
+    padding: 4px 20px 4px 4px;
+    text-align: left;
+
+    &:hover{
+      text-decoration: underline;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 2px;
+      height: 9px;
+      background: $co-main;
+      right: 0;
+    }
+
+    &::before {
+      top: 12px;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      top: 6px;
+      transform: rotate(-45deg);
     }
   }
 }
@@ -258,12 +322,14 @@ header.gnb {
   background-position: left bottom;
 
   .area-conts {
-    display: flex;
-    flex-direction: row-reverse;
     width: 100vw;
     height: 100vh;
 
     .area-info {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
       width: 50vw;
       text-align: center;
     }
@@ -336,16 +402,19 @@ header.gnb {
   justify-content: space-between;
   align-items: center;
 
+  .tit-main {
+    text-align: left;
+  }
+
   .list-info {
-    width: 40%;
     text-align: left;
 
     dt {
+      margin: 2rem 0 0 0;
       color : $co-txt-main;
     }
 
     dd {
-      margin: 2rem 0 0 0;
       &:not(:last-child) {
         margin-bottom: 3rem;
       }
