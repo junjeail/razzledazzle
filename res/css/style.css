@@ -1052,6 +1052,9 @@ header.gnb .area-conts nav a.active::before {
   .area-conts {
     height: auto !important;
   }
+  .area-mainvisual {
+    margin-top: 72px;
+  }
   .area-mainvisual,
 .area-mainvisual .swiper-wrapper,
 .area-mainvisual .swiper-wrapper .swiper-slide {
