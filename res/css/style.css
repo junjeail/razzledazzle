@@ -483,6 +483,7 @@ header.gnb .area-conts nav a.active::before {
 .area-intro .area-conts {
   width: 100vw;
   height: 100vh;
+  position: relative;
 }
 .area-intro .area-conts .area-info {
   position: absolute;
