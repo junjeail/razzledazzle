@@ -410,8 +410,13 @@ header.gnb {
     text-align: left;
   }
 
+  .area-conts {
+    margin: 0 !important;
+  }
+
   .list-info {
     text-align: left;
+    padding: 0 3rem 0 0;
 
     dt {
       margin: 2rem 0 0 0;
@@ -450,15 +455,17 @@ header.gnb {
       display: block;
       position: relative;
       width: 33%;
-      margin-top: 70px;
+      margin-top: 50px;
+
+      $ico-width: 180px;
 
       &::before {
         content:"";
         display: inline-block;
-        width: 240px;
-        height: 240px;
+        width: $ico-width;
+        height: $ico-width;
         background: url(../img/img-contact.png) no-repeat;
-        background-size: auto 240px;
+        background-size: auto $ico-width;
       }
 
       &.img01 {
@@ -469,31 +476,31 @@ header.gnb {
 
       &.img02 {
         &::before {
-          background-position: -240px 0;
+          background-position: calc($ico-width * -1) 0;
         }
       }
 
       &.img03 {
         &::before {
-          background-position: -480px 0;
+          background-position: calc($ico-width * -2) 0;
         }
       }
 
       &.img04 {
         &::before {
-          background-position: -720px 0;
+          background-position: calc($ico-width * -3) 0;
         }
       }
 
       &.img05 {
         &::before {
-          background-position: -960px 0;
+          background-position: calc($ico-width * -4) 0;
         }
       }
 
       &.img06 {
         &::before {
-          background-position: -1200px 0;
+          background-position: calc($ico-width * -5) 0;
         }
       }
 

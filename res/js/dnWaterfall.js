@@ -159,7 +159,7 @@
         slide : function(imgSrc){
           let mask  =  $('<div class="dnWaterfall-mask" />') ,
               box   =  $('<div class="dnWaterfall-box" />') ,
-              close =  $('<div class="close" />') ;
+              close =  $('<div class="dnWaterfall-box" />') ;
           this.column.parents('body').prepend(mask).find(mask).prepend(box).find(box).prepend(close);
 
           let imgObj = new Image() ;

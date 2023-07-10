@@ -563,8 +563,12 @@ header.gnb .area-conts nav a.active::before {
 .area-information .tit-main {
   text-align: left;
 }
+.area-information .area-conts {
+  margin: 0 !important;
+}
 .area-information .list-info {
   text-align: left;
+  padding: 0 3rem 0 0;
 }
 .area-information .list-info dt {
   margin: 2rem 0 0 0;
@@ -597,33 +601,33 @@ header.gnb .area-conts nav a.active::before {
   display: block;
   position: relative;
   width: 33%;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 .area-qst .list-qst li::before {
   content: "";
   display: inline-block;
-  width: 240px;
-  height: 240px;
+  width: 180px;
+  height: 180px;
   background: url(../img/img-contact.png) no-repeat;
-  background-size: auto 240px;
+  background-size: auto 180px;
 }
 .area-qst .list-qst li.img01::before {
   background-position: 0 0;
 }
 .area-qst .list-qst li.img02::before {
-  background-position: -240px 0;
+  background-position: -180px 0;
 }
 .area-qst .list-qst li.img03::before {
-  background-position: -480px 0;
+  background-position: -360px 0;
 }
 .area-qst .list-qst li.img04::before {
-  background-position: -720px 0;
+  background-position: -540px 0;
 }
 .area-qst .list-qst li.img05::before {
-  background-position: -960px 0;
+  background-position: -720px 0;
 }
 .area-qst .list-qst li.img06::before {
-  background-position: -1200px 0;
+  background-position: -900px 0;
 }
 .area-qst .list-qst li strong {
   display: block;
