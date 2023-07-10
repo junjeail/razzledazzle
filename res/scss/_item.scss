@@ -1,177 +1,243 @@
 $zero : 0%;
-$full :100% ;
+$full :100%;
 $half :50%;
 
-@mixin bgAndzIndex($z,$bg){
-  z-index : $z ;
-  background : $bg ;
-};
+@mixin bgAndzIndex($z, $bg) {
+  z-index: $z ;
+  background: $bg ;
+}
 
-*{
-  box-sizing:border-box;
+* {
+  box-sizing: border-box;
   margin: $zero;
   padding: $zero;
   list-style: none;
 }
 
-@keyframes myloading
-{
-  from {transform:rotate(0deg);}
-  to   {transform:rotate(360deg);}
+@keyframes myloading {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-@media screen and (min-width:1200px){
-    .dnWaterfall::before{
-      content:"4+col-dn-waterfall-3";
+// @media screen and (min-width:1200px) {
+//   .dnWaterfall::before {
+//     content: "4+col-dn-waterfall-3";
+//   }
+// }
+
+// @media screen and (min-width: 992px) and (max-width: 1199px) {
+//   .dnWaterfall::before {
+//     content: "3+col-dn-waterfall-3";
+//   }
+// }
+
+// @media screen and (min-width: 768px) and (max-width: 991px) {
+//   .dnWaterfall::before {
+//     content: "2+col-dn-waterfall-2";
+//   }
+// }
+
+// @media only screen and (max-width: 767px) {
+//   .dnWaterfall::before {
+//     content: "1+col-dn-waterfall-1";
+//   }
+// }
+
+// .dnWaterfall-mask{
+//   position: fixed;
+//   width:$full;
+//   height: $full;
+//   @include bgAndzIndex(9,rgba(0,0,0,.5));
+//   .dnWaterfall-box{
+//     position: absolute;
+//     cursor: pointer;
+//     @include bgAndzIndex(9, transparent);
+//     width: 100%;
+//     height: 100%;
+//     left:0;
+//     top:0;
+//     & > img {
+//       display: block;
+//       position: absolute;
+//       top: 50%;
+//       left: 50%;
+//       max-width: 80%;
+//       max-height: 80%;
+//       transform: translate(-50%, -50%);
+//     }
+//     .close{
+//       position: absolute;
+//       top:-4px;
+//       right:-39px;
+//       width:35px;
+//       height: 35px;
+//       border-radius: 0px 5px 5px 0px;
+//       @include bgAndzIndex(1,black);
+//       &::before{
+//         content: '';
+//         display: block;
+//         position: absolute;
+//         right: 0;
+//         top:0;
+//         width: $full ;
+//         height: $full ;
+//         @include bgAndzIndex(1,url('../img/close.svg'));
+//         background-repeat: no-repeat;
+//       }
+//     }
+//   }
+// }
+
+// .dnWaterfall{
+//     clear: both;
+//     overflow: hidden;
+//     max-width: 980px;
+//     margin: 0px auto;
+//   &::before{
+//     position: absolute;
+//     visibility: hidden;
+//   }
+//   .column{
+//     float: left;
+//     position: relative;
+//     padding-right: 15px; 
+//     padding-left : 15px;   
+//   }
+//   .col-dn-waterfall-1 {
+//     width: 100%;
+//   }
+
+//   .col-dn-waterfall-2 {
+//     width: 50%;
+//   }
+
+//   .col-dn-waterfall-3 {
+//     width: calc(100% / 3);
+//   }
+
+//   .waterfall-area{
+//     margin-top: 15px;
+//     cursor: pointer;
+//     position: relative;
+//     &.done:hover::before{
+//       content: '';
+//       display: block;
+//       position: absolute;
+//       left:0%;
+//       top:0%;
+//       width:100%;
+//       height: 100%;
+//       @include bgAndzIndex(0,rgba(0,0,0,.3));
+//     }
+//     .waterfall-pic{
+//       width:$full;
+//       vertical-align: middle;
+//       border:thin solid #ccc;
+//       &.hidden{
+//         visibility: hidden;
+//       }
+//     }
+//     .waterfall-link.loaded{
+//       display: block;
+//       position: relative;
+//       height: auto;
+//       @include bgAndzIndex(-2,#ccc);
+//       &::before{
+//         content: "";
+//         width: 40px;
+//         height: 40px;
+//         position: absolute;
+//         top:$half;
+//         left:$half;
+//         margin-left: -20px;
+//         margin-top: -20px;
+//         display: block;
+//         @include bgAndzIndex(-1,url("../images/loading.svg"));
+//         background-repeat: no-repeat;
+//         background-position: center;
+//         animation:myloading 2s linear infinite;
+//       }
+//       &::after{
+//         content: "Loading";
+//         width: 60px;
+//         height: 20px;
+//         top:$half;
+//         left:$half;
+//         position: absolute;
+//         margin-left: -30px;
+//         margin-top: 25px;
+//         display: block;
+//         z-index: -1;
+//         color:#666;
+//         font-weight: bold;
+//       }
+//     }
+//   }
+// }
+
+.area-gallery {
+
+  .dnWaterfall {
+    padding: {
+      top: 5rem;
+      bottom: 5rem;
     }
+
+    display: grid;
+    max-width: 100rem;
+    margin: 0 auto;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    grid-auto-rows: .5rem;
+    box-sizing: content-box;
+
+    .grid-item {
+      border-radius: 0;
+      overflow: visible;
+      visibility: visible;
+      box-sizing: content-box;
+      
+      &::after {
+        content:"";
+        display: block;
+        position: relative;
+        clear:both;
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, .2);
+    }
+
+  }
 }
 
-@media screen and (min-width: 992px) and (max-width: 1199px) {
-    .dnWaterfall::before{
-      content:"3+col-dn-waterfall-3";
-    }
-}
- 
-@media screen and (min-width: 768px) and (max-width: 991px) {
-    .dnWaterfall::before{
-      content:"2+col-dn-waterfall-2";
-    }
-}
-
-@media only screen and (max-width: 767px){
-    .dnWaterfall::before{
-      content:"1+col-dn-waterfall-1";
-    }
-}
-
-.dnWaterfall-mask{
+.popWrap {
   position: fixed;
-  width:$full;
-  height: $full;
-  @include bgAndzIndex(9,rgba(0,0,0,.5));
-  .dnWaterfall-box{
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index: 999;
+  background: rgba($black, .6);
+
+  .popImg {
     position: absolute;
-    cursor: pointer;
-    @include bgAndzIndex(9, transparent);
-    width: 100%;
-    height: 100%;
-    left:0;
-    top:0;
-    & > img {
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      max-width: 80%;
-      max-height: 80%;
-      transform: translate(-50%, -50%);
-    }
-    .close{
-      position: absolute;
-      top:-4px;
-      right:-39px;
-      width:35px;
-      height: 35px;
-      border-radius: 0px 5px 5px 0px;
-      @include bgAndzIndex(1,black);
-      &::before{
-        content: '';
-        display: block;
-        position: absolute;
-        right: 0;
-        top:0;
-        width: $full ;
-        height: $full ;
-        @include bgAndzIndex(1,url('../img/close.svg'));
-        background-repeat: no-repeat;
-      }
-    }
-  }
-}
-
-.dnWaterfall{
-    clear: both;
-    overflow: hidden;
-    max-width: 980px;
-    margin: 0px auto;
-  &::before{
-    position: absolute;
-    visibility: hidden;
-  }
-  .column{
-    float: left;
-    position: relative;
-    padding-right: 15px; 
-    padding-left : 15px;   
-  }
-  .col-dn-waterfall-1 {
-    width: 100%;
-  }
-
-  .col-dn-waterfall-2 {
-    width: 50%;
-  }
-
-  .col-dn-waterfall-3 {
-    width: calc(100% / 3);
-  }
-
-  .waterfall-area{
-    margin-top: 15px;
-    cursor: pointer;
-    position: relative;
-    &.done:hover::before{
-      content: '';
-      display: block;
-      position: absolute;
-      left:0%;
-      top:0%;
-      width:100%;
-      height: 100%;
-      @include bgAndzIndex(0,rgba(0,0,0,.3));
-    }
-    .waterfall-pic{
-      width:$full;
-      vertical-align: middle;
-      border:thin solid #ccc;
-      &.hidden{
-        visibility: hidden;
-      }
-    }
-    .waterfall-link.loaded{
-      display: block;
-      position: relative;
-      height: auto;
-      @include bgAndzIndex(-2,#ccc);
-      &::before{
-        content: "";
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        top:$half;
-        left:$half;
-        margin-left: -20px;
-        margin-top: -20px;
-        display: block;
-        @include bgAndzIndex(-1,url("../images/loading.svg"));
-        background-repeat: no-repeat;
-        background-position: center;
-        animation:myloading 2s linear infinite;
-      }
-      &::after{
-        content: "Loading";
-        width: 60px;
-        height: 20px;
-        top:$half;
-        left:$half;
-        position: absolute;
-        margin-left: -30px;
-        margin-top: 25px;
-        display: block;
-        z-index: -1;
-        color:#666;
-        font-weight: bold;
-      }
-    }
+    top: 5%;
+    right: 5%;
+    bottom: 5%;
+    left: 5%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    pointer-events: none;
   }
 }
